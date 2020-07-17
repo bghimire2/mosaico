@@ -49,6 +49,25 @@
     <a title="Download template" href="javascript:void(0)" data-bind="attr: { title: $root.t('Download template') }, click: $root.download.execute, clickBubble: false, button: { disabled: !$root.download.enabled(), icons: { primary: 'fa fa-fw fa-download' }, label: $root.t($root.download.name), text: true }">DOWNLOAD</a>
     </form>
     <!-- /ko -->
+    <!-- ko if: typeof $root.exit !== 'undefined' -->
+    <a title="Exit to dashboard" href="javascript:void(0)" data-bind="attr: { title: $root.t('Go back to dashboard') }, click: $root.exit.execute, clickBubble: false, button: { disabled: !$root.exit.enabled(), icons: { primary: 'fa fa-fw fa-arrow-left' }, label: $root.t($root.exit.name), text: true }">GO BACK</a>
+    <div class="b-modal" id='exit-modal'>
+      <div class="b-modal-background"></div>
+      <div class="b-modal-card">
+        <header class="b-modal-card-head">
+          <p class="b-modal-card-title">Confirm</p>
+          <button class="b-delete" aria-label="close" data-bind="click: $root.exit.cancel"></button>
+        </header>
+        <section class="b-modal-card-body">
+          <p class="b-is-size-6">Do you want to save changes before going back to dashboard?</p>
+        </section>
+        <footer class="b-modal-card-foot">
+          <button class="b-button b-is-success" data-bind="click: $root.exit.yes">Yes</button>
+          <button class="b-button" data-bind="click: $root.exit.no">No</button>
+        </footer>
+      </div>
+    </div>
+    <!-- /ko -->
     </div>
   </div>
 
